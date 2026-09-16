@@ -1,0 +1,11 @@
+# Ignore everything by default
+*
+
+# Allow Git to check inside directories (otherwise it skips ignored folders entirely)
+!*/
+
+# Whitelist all .c files recursively
+!*.c
+
+# Whitelist the .gitignore file itself so it gets tracked
+!.gitignore
