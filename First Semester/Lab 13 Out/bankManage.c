@@ -9,7 +9,14 @@ int calculateTotal(int *p, int size){
 }
 // Task 5
 int deposit(int n1,int n2){
-	
+	return n1+n2;
+}
+int withdraw(int n1,int n2){
+	return n1-n2;
+}
+// Task 6
+int processTransaction(int bal, int amnt, int (*op)(int,int)){
+	return op(bal,amnt);
 }
 int main(void)
 {
@@ -28,7 +35,7 @@ int main(void)
 		{120000, 150000,180000}, 
 		{200000, 170000, 220000}
 	};
-	int* transP = transactions;
+	int *transP = transactions;
 	printf("Transactions\n");
 	printf("Branch 1\n");
 	printf("Amount   \tAddress\n");
@@ -56,7 +63,21 @@ int main(void)
 	//Task 4, Function created above main
 	printf("Branch 1 Total: %d\n",calculateTotal(brAcc1,3));
 	printf("Branch 2 Total: %d\n",calculateTotal(brAcc2,4));
+	printf("\n\n");
 	//Task 5, Functions created above main
-	
-	
+	int (*op)(int, int);
+	op = withdraw;
+	printf("Withdraw amount %d from balance %d is %d\n",600,1000,op(1000,600));
+	op = deposit;
+	printf("Deposit amount %d into balance %d is %d\n",600,1000,op(1000,600));
+	printf("\n\n");
+	// Task 6
+	int Balance = 10000;
+	int amnt = 2300;
+	printf("Original balance: %d\n",Balance);
+	Balance = processTransaction(Balance,amnt,withdraw);
+	printf("Withdraw Amnt: %d\nBalance: %d\n",amnt,Balance);
+	amnt = 6800;
+	Balance = processTransaction(Balance,amnt,deposit);
+	printf("Deposit Amnt: %d\nBalance: %d",amnt,Balance);
 }
