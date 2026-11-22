@@ -29,10 +29,10 @@ int main(void)
 	printf("\nRead mode\n");
 	if(fpr==NULL){printf("File not opened");}
 	fscanf(fpr,"%d %f",&accId[0],&transaction[0]);
-	printf("%d %f\n",accId[0],transaction[0]);
+	printf("%d %.2f\n",accId[0],transaction[0]);
 	
 	fscanf(fpr,"%d %f",&accId[1],&transaction[1]);
-	printf("%d %f",accId[1],transaction[1]);
+	printf("%d %.2f",accId[1],transaction[1]);
 	fclose(fpr);
 	return 0;
 }

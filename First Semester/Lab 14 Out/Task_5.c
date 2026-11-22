@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-int main(void)
-{
+int main(void) {
 	float total,obtained;
 	char name[20];
 	printf("Enter Name: ");
@@ -11,12 +10,12 @@ int main(void)
 	printf("Enter total marks: ");
 	scanf("%f",&total);
 	float percent = (obtained/total)*100.0f;
-	
+
 	FILE *fpr;
 	fpr = fopen("Percent.txt","w");
 	fprintf(fpr,"%s %.2f",name,percent);
 	fclose(fpr);
-	
+
 	fpr = fopen("Percent.txt","r");
 	fscanf(fpr,"%s",&name);
 	fscanf(fpr,"%f",&percent);

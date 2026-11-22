@@ -7,12 +7,12 @@ int main(void)
 	gets(sentence);
 	printf("Enter character: ");
 	scanf("%c",&ch);
-	int i=strchr(sentence,ch);
-	printf("Found at %p",i);
+	char *i=strchr(sentence,ch);
+	printf("Found at %d",i-sentence);
 	printf("\n");
 	printf("Char\tAddress\n");
 	for(int j=0;sentence[j]!='\0';j++){
-		printf("%-4c\t%p\n",sentence[j],&sentence[j]);
+		printf("%-4c\t%d\n",sentence[j],&sentence[j]-sentence);
 	}
 	int newSent[50];
 	strcpy(newSent,sentence);
